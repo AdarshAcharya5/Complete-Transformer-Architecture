@@ -160,7 +160,7 @@ class Transformer(nn.Module):
                                embed_dim = embed_dim,
                                fc_dim = fc_dim,
                                target_vocab_size = target_vocab_size,
-                               max_pos = max_pos_input,
+                               max_pos = max_pos_output,
                                dropout_ = dropout_,
                                epsilon = epsilon)
         
