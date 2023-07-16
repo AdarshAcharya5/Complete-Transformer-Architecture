@@ -152,6 +152,7 @@ class Transformer(nn.Module):
         super(Transformer, self).__init__()
         self.encoder_block = Encoder(num_layers = num_layers,
                                embed_dim = embed_dim,
+                               num_heads = num_heads,
                                fc_dim = fc_dim,
                                input_vocab_size = input_vocab_size,
                                max_pos = max_pos_input,
@@ -160,6 +161,7 @@ class Transformer(nn.Module):
         
         self.decoder_block = Decoder(num_layers = num_layers,
                                embed_dim = embed_dim,
+                               num_heads = num_heads,
                                fc_dim = fc_dim,
                                target_vocab_size = target_vocab_size,
                                max_pos = max_pos_output,
