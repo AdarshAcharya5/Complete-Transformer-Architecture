@@ -22,10 +22,9 @@ def attention_mask(seq_length):
 
 def fc_layer(embed_dim, fc_dim):
     return nn.Sequential(
-        nn.Linear(fc_dim, fc_dim),
+        nn.Linear(embed_dim, fc_dim*4),
         nn.ReLU(),
-        nn.Linear(fc_dim, embed_dim),
-        nn.ReLU(),
+        nn.Linear(fc_dim*4, embed_dim),
     )
 
 
