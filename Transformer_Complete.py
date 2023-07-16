@@ -32,7 +32,8 @@ def fc_layer(embed_dim, fc_dim):
 class Encoder_Layer(nn.Module):
     def __init__(self, embedding_size, num_heads, fc_dim, dropout_ = 0.2, epsilon = 1e-6):
         super(Encoder_Layer, self).__init__()
-        self.multi_head_attention = nn.MultiheadAttention(num_heads = num_heads, 
+        self.multi_head_attention = nn.MultiheadAttention(embed_dim = embedding_size,
+num_heads = num_heads, 
                                                           dropout = dropout_, 
                                                           kdim = embedding_size)
         self.fcn = fc_layer(embed_dim = embedding_size, fc_dim = fc_dim)
@@ -84,10 +85,12 @@ class Encoder(nn.Module):
 class Decoder_Layer(nn.Module):
     def __init__(self, embedding_size, num_heads, fc_dim, dropout_ = 0.2, epsilon = 1e-6):
         super(Decoder_Layer, self).__init__()
-        self.multi_head_attention1 = nn.MultiheadAttention(num_heads = num_heads, 
+        self.multi_head_attention1 = nn.MultiheadAttention(embed_dim = embedding_size,
+num_heads = num_heads, 
                                                           dropout = dropout_, 
                                                           kdim = embedding_size)
-        self.multi_head_attention2 = nn.MultiheadAttention(num_heads = num_heads, 
+        self.multi_head_attention2 = nn.MultiheadAttention(embed_dim = embedding_size,
+num_heads = num_heads, 
                                                           dropout = dropout_, 
                                                           kdim = embedding_size)
         self.fcn = fc_layer(embed_dim = embedding_size, fc_dim = fc_dim)
