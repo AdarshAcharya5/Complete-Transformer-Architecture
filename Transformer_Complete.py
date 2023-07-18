@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import numpy as np
-import matplotlib.pyplot as plt
 
 def vector_angles(positions, dimensions, encoding_size):
     return positions / 10000**((2*dimensions) / encoding_size)
